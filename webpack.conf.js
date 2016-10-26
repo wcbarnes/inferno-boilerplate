@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const glob = require('glob');
 
 module.exports = {
-	entry: './src/index.js',
+	entry: './src/Ticker.js',
 	output: {
 		path: '.',
 		filename: 'bundle.js',
@@ -27,7 +27,8 @@ module.exports = {
 				bypass: function (req, res, proxyOptions) {
 					return '/public/index.html';
 				}
-			}
+			},
+   		'/stock': { target: 'http://localhost:3000', secure: false }
 		}
 	},
 	plugins: [
